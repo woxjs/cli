@@ -29,6 +29,8 @@ program
   .option('-S, --service', 'add a service file')
   .option('-W, --webview', 'add a webview file')
   .option('-P, --component', 'add a component file')
+  .option('-D, --directive', 'add a directive file')
+  .option('-F, --filter', 'add a filter file')
   .option('-A, --async', 'the webview must be a async webview')
   .allowUnknownOption()
   .action((...args) => tryCatch(async roll => await exec('add', roll, ...args)));

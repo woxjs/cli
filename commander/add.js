@@ -10,6 +10,8 @@ module.exports = async (cmd, roll, files, options) => {
   if (options.controller) await addone.controller(cwd, ...files);
   if (options.middleware) await addone.middleware(cwd, ...files);
   if (options.service) await addone.service(cwd, ...files);
+  if (options.directive) await addone.directive(cwd, ...files);
+  if (options.filter) await addone.filter(cwd, ...files);
   if (options.webview) {
     if (options.async) {
       await addone.asyncWebview(cwd, ...files);
