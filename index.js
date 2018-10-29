@@ -28,6 +28,7 @@ program
   .option('-M, --middleware', 'add a middleware file')
   .option('-S, --service', 'add a service file')
   .option('-W, --webview', 'add a webview file')
+  .option('-P, --component', 'add a component file')
   .option('-A, --async', 'the webview must be a async webview')
   .allowUnknownOption()
   .action((...args) => tryCatch(async roll => await exec('add', roll, ...args)));

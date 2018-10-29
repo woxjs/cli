@@ -17,6 +17,13 @@ module.exports = async (cmd, roll, files, options) => {
       await addone.webview(cwd, ...files);
     }
   }
+  if (options.component) {
+    if (options.async) {
+      await addone.asyncComponent(cwd, ...files);
+    } else {
+      await addone.component(cwd, ...files);
+    }
+  }
 
   if (addone.addCount || addone.modifyCount || addone.removeCount) {
     return cmd.complete({
