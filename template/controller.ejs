@@ -1,16 +1,12 @@
-import {
-  ControllerBasicClass,
-  Controller,
-  Get
-} from '@wox/basic';
-
+import { ControllerBasicClass, HttpRenderDecorator } from '@wox/basic';
+const Http = new HttpRenderDecorator();
 @Controller('/')
 export default class <%=className%> extends ControllerBasicClass {
   constructor(ctx) {
     super(ctx);
   }
 
-  @Get('/')
+  @Http.Get('/')
   async welcome() {
     await this.ctx.render(this.ctx.Webview.Index);
   }
