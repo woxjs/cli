@@ -1,6 +1,6 @@
 import { ControllerBasicClass, HttpRenderDecorator } from '@wox/basic';
 const Http = new HttpRenderDecorator();
-@Controller('/')
+@Http.Controller('/')
 export default class <%=className%> extends ControllerBasicClass {
   constructor(ctx) {
     super(ctx);
