@@ -47,6 +47,11 @@ program
   .description('remove wox plugins')
   .action(plugins => tryCatch(async roll => await exec('uninstall', roll, ...plugins)));
 
+program
+  .command('use <commander>')
+  .description('use npm or custom registry commander')
+  .action(commander => tryCatch(async roll => await exec('use', roll, commander)));
+
 const pluginFilePath = path.resolve(process.cwd(), 'plugin', 'index.json');
 if (fs.existsSync(pluginFilePath)) {
   const plugins = utils.loadFile(pluginFilePath);
