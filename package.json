@@ -1,6 +1,6 @@
 {
   "name": "@wox/cli",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "The cli of wox",
   "main": "index.js",
   "repository": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "fs-extra": "^7.0.1",
+    "globby": "^9.0.0",
     "prompts": "^2.0.3",
     "randomstring": "^1.1.5",
     "request": "^2.88.0",

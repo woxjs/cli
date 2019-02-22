@@ -3,12 +3,6 @@ const path = require('path');
 const resolveUp = require('resolve-up');
 module.exports = (program, client) => {
   program
-    .command('wox:new [project]')
-    .description('create a new wox project or plugin')
-    .option('-p, --plugin', 'create new plugin mode')
-    .action(client.require('./lib/create-new-project'));
-
-  program
     .command('wox <path>')
     .description('create a new wox file by type')
     .option('-p, --component [type]', 'create a new `Vue.component` file')
@@ -21,6 +15,18 @@ module.exports = (program, client) => {
     .option('-t, --decorate', 'create a new `Decorate` file')
     .option('-w, --webview', 'create a new `Decorate` file')
     .action(client.require('./lib/add-new-file'));
+  
+  program
+    .command('wox:new [project]')
+    .description('create a new wox project or plugin')
+    .option('-p, --plugin', 'create new plugin mode')
+    .action(client.require('./lib/create-new-project'));
+
+  program
+    .command('wox:setup <plugins...>')
+    .description('setup plugins into project')
+    .option('-r, --registry <host>', 'which host can been choosed?')
+    .action(client.require('./lib/setup.js'));
 
   let plugins = [];
   const rootConfigPath = path.resolve(process.cwd(), 'config/plugin.json');
