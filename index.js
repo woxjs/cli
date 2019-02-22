@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const resolveUp = require('resolve-up');
 module.exports = (program, client) => {
   program
     .command('wox:new [project]')
@@ -38,14 +39,14 @@ module.exports = (program, client) => {
 
   for (let i = 0; i < plugins.length; i++) {
     const plugin = plugins[i];
-    let modulePath;
-    try{ modulePath = require.resolve(plugin); }catch(e) {}
-    if (modulePath) {
-      const moduleExports = require(modulePath);
-      const moduleDir = path.dirname(modulePath);
-      if (typeof moduleExports === 'function' && moduleExports.__IS_CLI_PLUGIN__) {
-        moduleExports(program, new client.constructor(moduleDir, ctx.util, ctx.pkg));
-      }
+    const modulePaths = resolveUp(plugin);
+    if (!modulePaths.length) continue;
+    const modulePath = modulePaths[0];
+    const execFile = path.resolve(modulePath, 'commander.js');
+    if (!fs.existsSync(execFile)) continue;
+    const moduleExports = require(execFile);
+    if (typeof moduleExports === 'function' && moduleExports.__IS_CLI_PLUGIN__) {
+      moduleExports(program, new client.constructor(modulePath, client.util, client.pkg));
     }
   }
 }
