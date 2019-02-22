@@ -1,0 +1,12 @@
+export default {
+  name: '<%=className%>',
+  enter(ctx) {
+    console.log(`enter ${ctx.url}: <%=className%>`);
+  },
+  leave(ctx) {
+    console.log(`leave ${ctx.url}: <%=className%>`);
+  },
+  template() {
+    return `<div>Untitled Component</div>`;
+  }
+}

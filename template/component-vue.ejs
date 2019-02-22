@@ -1,0 +1,16 @@
+<template>
+  <div>Untitled Component</div>
+</template>
+<script>
+  export default {
+    name: '<%=className%>',
+    enter(ctx) {
+      console.log(`enter ${ctx.url}: <%=className%>`);
+    },
+    leave(ctx) {
+      console.log(`leave ${ctx.url}: <%=className%>`);
+    }
+  }
+</script>
+<style lang="less" scoped>
+</style>

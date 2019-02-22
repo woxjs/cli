@@ -1,0 +1,14 @@
+import { DecorateInterface } from '@wox/wox';
+export default class <%=className%> extends DecorateInterface {
+  constructor() {
+    super('<%=className%>');
+  }
+  interfaceWillInject(...value) {
+    return (target, property, descriptor) => {
+      this.set(descriptor.value, value);
+    }
+  }
+  interfaceDidRendered(data, { ctx, options }) {
+    
+  }
+}
