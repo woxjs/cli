@@ -21,7 +21,7 @@ module.exports = (program, client) => {
     .option('-w, --webview', 'create a new `Decorate` file')
     .action(client.require('./lib/add-new-file'));
 
-  const plugins = [];
+  let plugins = [];
   const rootConfigPath = path.resolve(process.cwd(), 'config/plugin.json');
   const packageFilePath = path.resolve(process.cwd(), 'package.json');
 
