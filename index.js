@@ -13,7 +13,7 @@ module.exports = (program, client) => {
     .option('-m, --middleware', 'create a new `Middleware` file')
     .option('-s, --service', 'create a new `Service` file')
     .option('-t, --decorate', 'create a new `Decorate` file')
-    .option('-w, --webview', 'create a new `Decorate` file')
+    .option('-w, --webview', 'create a new `Webview` file')
     .action(client.require('./lib/add-new-file'));
   
   program

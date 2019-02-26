@@ -1,6 +1,6 @@
 {
   "name": "@wox/cli",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "The cli of wox",
   "main": "index.js",
   "repository": {
