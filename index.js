@@ -5,13 +5,13 @@ module.exports = (program, client) => {
   program
     .command('wox <path>')
     .description('create a new wox file by type')
-    .option('-p, --component [type]', 'create a new `Vue.component` file')
+    .option('-p, --component [type]', 'create a new `Vue.component` file', 'vue')
     .option('-d, --directive', 'create a new `Vue.directive` file')
     .option('-f, --filter', 'create a new `Vue.filter` file')
     .option('-x, --mixin', 'create a new `Vue.mixin` file')
-    .option('-c, --controller', 'create a new `Controller` file')
+    .option('-c, --controller [type]', 'create a new `Controller` file', 'js')
     .option('-m, --middleware', 'create a new `Middleware` file')
-    .option('-s, --service', 'create a new `Service` file')
+    .option('-s, --service [type]', 'create a new `Service` file', 'js')
     .option('-t, --decorate', 'create a new `Decorate` file')
     .option('-w, --webview', 'create a new `Webview` file')
     .action(client.require('./lib/add-new-file'));
